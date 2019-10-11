@@ -1,1 +1,1 @@
-# Comman-Algorithms
+# Common-Algorithms
