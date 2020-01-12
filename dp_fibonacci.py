@@ -26,12 +26,12 @@ if __name__ == "__main__":
     result=fastFib(n)
     end = time.time()
     print(result)
-    print("Fibnacci sequense costs", end - start)
+    print("Fibnacci sequence costs", end - start)
 
     start1 = time.time()
     result1 = fast_fib2(n)
     end1 = time.time()
     print(result1)
-    print("Fibnacci sequense costs", end1 - start1)
+    print("Fibnacci sequence costs", end1 - start1)
 
 

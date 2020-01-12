@@ -3,7 +3,7 @@ def generate_prime():
     n=100
     pri_num_list=[]
     for num in range(2, n + 1): # the range of candidate numbers
-        if all(num % j != 0 for j in range(2, int(math.sqrt(num))+1)):
+        if all(num % j != 0 for j in range(2, int(math.sqrt(num))+1)):  # Try divide 2 to sqrt(num)
             pri_num_list.append(num)
     print(len(pri_num_list),pri_num_list)
 
@@ -35,6 +35,7 @@ def generate_prime3():
             if(flag2==False):
                 continue
             ### check whether j is a prime ###
+            
             if(num % j==0): # j is a prime
                 flag1=False # num is not a prime
                 break
@@ -42,5 +43,6 @@ def generate_prime3():
             pri_num_list.append(num)
     print(len(pri_num_list), pri_num_list)
 
+generate_prime()
 generate_prime2()
 generate_prime3()

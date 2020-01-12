@@ -9,7 +9,7 @@ the option number is C7_0+C7_1+...C7_7 i.e. 2^7
 """
 import time
 
-# item have three attribute: name,weight,value
+# item have three attributes: name,weight,value
 class Item(object):
     def __init__(self,n,v,w):
         self.name=n
@@ -31,8 +31,8 @@ class Item(object):
 
 def getBinaryRep(n,numDigitals):
     """
-    Get the binary representation of n
-    numDigitals is the bits
+    Get the binary representation of n,
+    numDigitals is the number of bits
     """
     result=''
     while n>0:
@@ -42,7 +42,7 @@ def getBinaryRep(n,numDigitals):
     if len(result)> numDigitals:
         raise ValueError("not enough digits")
 
-    for i in range(numDigitals - len(result)):
+    for i in range(numDigitals - len(result)):  # add 0
         result = '0'+result
 
     return result
@@ -59,7 +59,7 @@ def genPowerSet(L):
         subset = []
         for j in range(len(L)): # check each bit(status), j is subscript
             if binstr[j]=='1':
-               subset.append(L[j])  #subset includes all item which is 1 contained in a knapsack
+               subset.append(L[j])  #subset includes all items which is 1 contained in a knapsack
         powerset.append(subset)
     return powerset
 

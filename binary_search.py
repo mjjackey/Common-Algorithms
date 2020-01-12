@@ -1,4 +1,12 @@
 def binarySearch(L,e,low,high):
+    """
+    Binary Search
+    :param L: The sorted list
+    :param e: The number to look for
+    :param low: The lowest index
+    :param high: The highest index
+    :return: bool: whether to find the number
+    """
     if high == low:
         return L[low] == e
     mid = (low+high)//2
@@ -10,6 +18,8 @@ def binarySearch(L,e,low,high):
         else:
             return binarySearch(L,e,low, mid-1)
     else:
+        if high == mid:
+            return False
         return binarySearch(L,e,mid+1,high)
 
 def search(L,e):
@@ -17,6 +27,6 @@ def search(L,e):
     print(result)
 
 L = range(10);
-e = 7
+e = 8
 
 search(L,e)

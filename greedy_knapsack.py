@@ -2,7 +2,7 @@
 Greedy Algorithm
 The code is from https://blog.csdn.net/changyuanchn/article/details/51417796
 """
-import brute_force as bf
+import brute_force_knapsack as bf
 
 def value(item):
     return item.getValue()
@@ -14,6 +14,13 @@ def density(item):
     return item.getValue()/item.getWeight()
 
 def greedy(items,maxWeight,keyFunction):
+    """
+    Greedy Algorithm
+    :param items: a list of items
+    :param maxWeight: weight constraint
+    :param keyFunction: greedy rule
+    :return: (a list of picked items, total vlaue)
+    """
     itemsCopy = sorted(items,key=keyFunction,reverse = True)  ####
     result = []
     totalValue = 0.0
