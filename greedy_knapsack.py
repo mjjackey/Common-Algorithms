@@ -33,6 +33,13 @@ def greedy(items,maxWeight,keyFunction):
     return (result,totalValue)
 
 def testGreedy(items,constraint,keyFunction):
+    """
+    call greedy function
+    :param items: a list of items
+    :param constraint:
+    :param keyFunction: greedy rule
+    :return: print each item in result items list
+    """
     taken,val=greedy(items,constraint,keyFunction)
     print('Total value of items taken = ', val)
     for item in taken:

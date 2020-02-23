@@ -43,16 +43,17 @@ def fastMaxVal(oraSet, leftWeight, memo={}):
     """
     if (len(oraSet), leftWeight) in memo:
         result = memo[(len(oraSet), leftWeight)]
-    elif oraSet == [] or leftWeight == 0:
+    elif oraSet == [] or leftWeight == 0: # terminate condition
         result = (0,())
     elif oraSet[0].getWeight()>leftWeight:
         result = fastMaxVal(oraSet[1:], leftWeight, memo)
     else:
-        nextItem = oraSet[0]
-
+        nextItem = oraSet[0] # pick the item
+        # The left set,tree
         leftValue,leftToken = fastMaxVal(oraSet[1:], leftWeight - nextItem.getWeight(), memo)
         leftValue +=nextItem.getValue()
 
+        # The right set,tree
         rightValue,rightToken = fastMaxVal(oraSet[1:], leftWeight, memo)
 
         if leftValue >rightValue:
