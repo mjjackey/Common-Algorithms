@@ -11,7 +11,7 @@ def maxValue(oraSet,leftRoom):
     # leaf
     if oraSet == [] or leftRoom == 0:
         return (0,())
-    # only right tree
+    # only right tree fits
     elif oraSet[0].getWeight() > leftRoom:
         result = maxValue(oraSet[1:],leftRoom)
     # select the best from the left and right
@@ -45,15 +45,16 @@ def fastMaxVal(oraSet, leftWeight, memo={}):
         result = memo[(len(oraSet), leftWeight)]
     elif oraSet == [] or leftWeight == 0: # terminate condition
         result = (0,())
+    # only right tree fits
     elif oraSet[0].getWeight()>leftWeight:
         result = fastMaxVal(oraSet[1:], leftWeight, memo)
     else:
         nextItem = oraSet[0] # pick the item
-        # The left set,tree
+        # left tree, means we select nextItem(the first value of the remaining)
         leftValue,leftToken = fastMaxVal(oraSet[1:], leftWeight - nextItem.getWeight(), memo)
         leftValue +=nextItem.getValue()
 
-        # The right set,tree
+        # right tree,means we do not select nextItem
         rightValue,rightToken = fastMaxVal(oraSet[1:], leftWeight, memo)
 
         if leftValue >rightValue:
@@ -62,9 +63,7 @@ def fastMaxVal(oraSet, leftWeight, memo={}):
             result = (rightValue,rightToken)
 
     memo[(len(oraSet), leftWeight)] = result
-
     return result
-
 
 def testCode():
     value,taken = maxValue(bf.buildItem(), 150)
