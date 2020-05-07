@@ -1,10 +1,10 @@
-class Gragh():
+class Graph():
     def __init__(self,nodes,sides):
         '''
         nodes 表示点, list
         sides 表示边(两个点组成的边), a list of tuple
         '''
-        # self.sequence是字典，key是node，value是与key相连接的点
+        # self.sequence是字典，key是node，value是与key相连接的点(是list)
         self.sequence = {}
         # self.side是临时变量，主要用于保存与指定点相连接的点
         self.side=[]
@@ -75,7 +75,7 @@ def main():
         (3, 6),
         (3, 7),
         (6, 7)]
-    G = Gragh(nodes,sides)
+    G = Graph(nodes, sides)
     print(G.DFS(1))
     print(G.BFS(1))
     print(G.DFS(1))
