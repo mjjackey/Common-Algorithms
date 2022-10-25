@@ -16,7 +16,7 @@ def binarySearch(L,e,low,high):
 
     mid = int((low+high)/2)
     if L[mid]==e:
-        return True
+        return mid
     elif L[mid]>e:
         # if low == mid: # equals to above statement "elif low>high"
         #     return False
@@ -44,14 +44,35 @@ def binarySearch2(L,e,low,high):
 
     return False
 
+def binarySearch_template(L, target):
+    if not L:
+        return False
+    start, end= 0, len(L) - 1
+    # start+1< end avoid to dead loop e.g. L=[1,1] target=1
+    while(start+1<end):
+        # note the overflow for other oo programming languages
+        mid = (start+end)//2
+        if(L[mid]<target):
+            start = mid
+        elif(L[mid]==target):
+            end = mid
+        else:
+            end = mid
+    if(L[start]==target):
+        return start
+    if(L[end]==target):
+        return end
+
 def search(L,e):
     result = binarySearch(L,e,0,len(L)-1)
     print(result)
     result2 = binarySearch2(L, e, 0, len(L) - 1)
     print(result2)
-
+    result3 = binarySearch_template(L,e)
+    print(result3)
 
 if __name__=="__main__":
     L = range(10);
     e = 8
     search(L, e)
+
