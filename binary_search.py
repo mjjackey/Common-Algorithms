@@ -51,7 +51,8 @@ def binarySearch_template(L, target):
     # start+1< end avoid to dead loop e.g. L=[1,1] target=1
     while(start+1<end):
         # note the overflow for other oo programming languages
-        mid = (start+end)//2
+        # mid = (start+end)//2
+        mid = start + (end-start)//2
         if(L[mid]<target):
             start = mid
         elif(L[mid]==target):
