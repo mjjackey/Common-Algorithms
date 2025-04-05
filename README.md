@@ -1,6 +1,6 @@
 # Common-Algorithms
 
-The common algorithms inlcude
+The common algorithms include
 
 - DFS,
 - BFS,
@@ -9,5 +9,5 @@ The common algorithms inlcude
 - DP,
 - Greedy,
 - Binary-Search,
-- Sort: quick sort
+- Sort: quick sort,
 - Sort: merge sort
